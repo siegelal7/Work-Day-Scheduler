@@ -4,29 +4,33 @@ $(document).ready(function () {
   var today = moment().format("dddd, MMMM, Do");
 
   currentDay.text(today);
-  //   var hours = [
-  //     "9",
-  //     "10",
-  //     "11",
-  //     "12",
-  //     "1",
-  //     "2",
-  //     "3",
-  //     "4",
-  //     "5",
-  //     "6",
-  //     "7",
-  //     "8",
-  //     "9",
-  //   ];
-  //   var ul = $("<ul>");
-  //   ul.addClass("list-group");
-  //   calenderEl.append(ul);
-  //   for (i = 0; i < hours.length; i++) {
-  //     var li = $("li");
-  //     li.addClass("list-group-item");
-  //     li.text(hour[i]);
-  //     ul.append(li);
-  //   }
-  //   console.log(moment().toString());
+  var table = $("<table>");
+  table.addClass("table time-block");
+  calenderEl.append(table);
+  var hours = [
+    "9AM",
+    "10AM",
+    "11AM",
+    "12PM",
+    "1PM",
+    "2PM",
+    "3PM",
+    "4PM",
+    "5PM",
+    "6PM",
+    "7PM",
+    "8PM",
+    "9PM",
+  ];
+  var tbody = $("<tbody>");
+  table.append(tbody);
+  for (var i = 0; i < hours.length; i++) {
+    var tr = $("<tr>");
+    var th = $("<th>");
+    th.attr("scope", "row");
+    th.addClass("row");
+    th.text(hours[i]);
+    tbody.append(tr);
+    tr.append(th);
+  }
 });
