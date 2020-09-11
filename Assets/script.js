@@ -5,7 +5,7 @@ $(document).ready(function () {
   var today = moment().format("dddd, MMMM, Do");
   currentDay.text(today);
 
-  var hours = ["9", "10", "11", "12", "13", "14", "16", "16", "17"];
+  var hours = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
   // set this variable equal to either the stored value or empty so that the calender blocks populate
   var wholeList = JSON.parse(localStorage.getItem("todoList")) || [];
 
