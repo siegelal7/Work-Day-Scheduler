@@ -31,7 +31,7 @@ $(document).ready(function () {
     // tries to find if any values are stored at that time, if so it creates an array with the elements that match the time
     var filteredTasks = wholeList.filter((task) => task.time === dayText);
     if (filteredTasks.length > 0) {
-      console.log(filteredTasks);
+      // console.log(filteredTasks);
       todo.val(filteredTasks[0].task);
     }
     //sets the class of the todo task based on the time decided by moment.js
