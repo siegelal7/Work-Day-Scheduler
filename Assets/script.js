@@ -57,12 +57,36 @@ $(document).ready(function () {
         time: $(this).siblings("div").text(),
         task: $(this).siblings("textarea").val(),
       };
-      wholeList.push(saveObject);
+
+      // for (var x =0; x <wholeList.length; x++){
+
+      // }
+      // found this function from a lot of googling here in this jsfiddle https://jsfiddle.net/rafaoliveira1337/nkcgwmex/ + playing around with results in console.log
+
+      //this will push the saveObject to the array if and only if there is no object with that time value. the else function wish splice took forever to figure out
+      if (
+        wholeList.find((obj) => obj.time.includes(saveObject.time)) ===
+        undefined
+      ) {
+        wholeList.push(saveObject);
+      } else {
+        //holy shit this worked.. found this function at https://stackoverflow.com/questions/15287865/remove-array-element-based-on-object-property
+        wholeList.splice(
+          wholeList.findIndex((item) => item.time == saveObject.time),
+          1
+        );
+
+        wholeList.push(saveObject);
+      }
+
       localStorage.setItem("todoList", JSON.stringify(wholeList));
     });
+    // console.log(wholeList);
     rows.append(day);
     rows.append(todo);
     rows.append(btn);
     calenderEl.append(rows);
   }
+  // var result = wholeList.find((obj) => obj.time.includes("10AM"));
+  // console.log(`${result}`);
 });
